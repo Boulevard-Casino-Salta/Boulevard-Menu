@@ -30,14 +30,17 @@
   { "nombre": "EMPANADAS x 3", "precio": 4000, "cat": "4. EMPANADAS" },
   { "nombre": "⭐ PROMO: 3 EMPANADAS + GASEOSA", "precio": 4500, "cat": "4. EMPANADAS" },
 
-  { "nombre": "GRANT'S", "precio": 3500, "cat": "5. BEBIDAS CON ALCOHOL" },
   { "nombre": "CHANDÓN GRANDE", "precio": 23000, "cat": "5. BEBIDAS CON ALCOHOL" },
   { "nombre": "NAVARRO CORREA", "precio": 18000, "cat": "5. BEBIDAS CON ALCOHOL" },
   { "nombre": "CHANDÓN 187", "precio": 7000, "cat": "5. BEBIDAS CON ALCOHOL" },
-  { "nombre": "JOHNNIE WALKER ROJO", "precio": 5500, "cat": "5. BEBIDAS CON ALCOHOL" },
   { "nombre": "JOHNNIE WALKER NEGRO", "precio": 8000, "cat": "5. BEBIDAS CON ALCOHOL" },
+  { "nombre": "JOHNNIE WALKER ROJO", "precio": 5500, "cat": "5. BEBIDAS CON ALCOHOL" },
+  { "nombre": "GRANT'S", "precio": 3500, "cat": "5. BEBIDAS CON ALCOHOL" },
+  { "nombre": "VODKA + SPEED", "precio": 5500, "cat": "5. BEBIDAS CON ALCOHOL" },
   { "nombre": "FERNET CON COCA", "precio": 4000, "cat": "5. BEBIDAS CON ALCOHOL" },
+  { "nombre": "GIN BOMBAY + TÓNICA", "precio": 6500, "cat": "5. BEBIDAS CON ALCOHOL" },
+  { "nombre": "GIN BRIGHTON + TÓNICA", "precio": 4500, "cat": "5. BEBIDAS CON ALCOHOL" },
+  { "nombre": "CAMPARI CON NARANJA", "precio": 4000, "cat": "5. BEBIDAS CON ALCOHOL" },
   { "nombre": "HEINEKEN / CORONA", "precio": 5000, "cat": "5. BEBIDAS CON ALCOHOL" },
-  { "nombre": "SALTA / QUILMES / BUDWEISER", "precio": 3500, "cat": "5. BEBIDAS CON ALCOHOL" },
-  { "nombre": "GIN BOMBAY + TÓNICA", "precio": 6500, "cat": "5. BEBIDAS CON ALCOHOL" }
+  { "nombre": "SALTA / QUILMES / BUDWEISER", "precio": 3500, "cat": "5. BEBIDAS CON ALCOHOL" }
 ]
