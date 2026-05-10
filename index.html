@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boulevard Casino - Menú</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: white; margin: 0; padding: 20px; }
-        h1 { border-bottom: 2px solid #d4af37; padding-bottom: 10px; color: #d4af37; text-align: center; }
-        .contenedor { max-width: 500px; margin: auto; }
-        .item { background: #2a2a2a; margin-bottom: 10px; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid #d4af37; }
-        .precio { font-weight: bold; font-size: 1.2em; color: #d4af37; }
-        footer { text-align: center; margin-top: 30px; font-size: 0.8em; color: #888; }
-    </style>
-</head>
-<body>
-    <div class="contenedor">
-        <h1>BOULEVARD CASINO</h1>
-        <div id="menu-lista">Cargando...</div>
-    </div>
-    <footer>Powered by Gato Software</footer>
-
-    <script>
-        fetch('productos.json')
+fetch('productos.json')
             .then(res => res.json())
             .then(data => {
-                let listado = '';
-                data.forEach(prod => {
-                    listado += `<div class="item"><span>${prod.nombre}</span><span class="precio">$${prod.precio}</span></div>`;
+                const contenedor = document.getElementById('menu-lista');
+                // Esto crea una lista de categorías únicas como "BEBIDAS", "COMIDAS", etc.
+                const categorias = [...new Set(data.map(p => p.cat))];
+                
+                let htmlFinal = '';
+                categorias.forEach(cat => {
+                    // Agregamos un título para cada categoría
+                    htmlFinal += `<h2 style="color: #d4af37; margin-top:30px; border-bottom: 1px solid #333;">${cat}</h2>`;
+                    
+                    // Filtramos los productos que pertenecen a esa categoría
+                    const filtrados = data.filter(p => p.cat === cat);
+                    filtrados.forEach(prod => {
+                        htmlFinal += `
+                            <div class="item">
+                                <span>${prod.nombre}</span>
+                                <span class="precio">$${prod.precio.toLocaleString('es-AR')}</span>
+                            </div>`;
+                    });
                 });
-                document.getElementById('menu-lista').innerHTML = listado;
+                contenedor.innerHTML = htmlFinal;
             });
-    </script>
-</body>
-</html>
