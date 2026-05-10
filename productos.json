@@ -1,14 +1,18 @@
 [
-  {
-    "nombre": "LIC AGUA",
-    "precio": 3500
-  },
-  {
-    "nombre": "TE CON LECHE",
-    "precio": 2500
-  },
-  {
-    "nombre": "PROMO DESAYUNO",
-    "precio": 4500
-  }
+  { "nombre": "COCA / SPRITE / FANTA", "precio": 1000, "cat": "BEBIDAS" },
+  { "nombre": "CITRIC", "precio": 2000, "cat": "BEBIDAS" },
+  { "nombre": "LIC AGUA", "precio": 3600, "cat": "BEBIDAS" },
+  { "nombre": "LIC LECHE", "precio": 4000, "cat": "BEBIDAS" },
+  { "nombre": "CAFÉ / CORTADO / LAGRIMA", "precio": 1500, "cat": "CAFETERÍA" },
+  { "nombre": "CAFÉ DOBLE", "precio": 2500, "cat": "CAFETERÍA" },
+  { "nombre": "TE", "precio": 1000, "cat": "CAFETERÍA" },
+  { "nombre": "PRECOCIDO JAMÓN Y QUESO", "precio": 5000, "cat": "COMIDAS" },
+  { "nombre": "MIXTO JAMÓN Y QUESO", "precio": 3000, "cat": "COMIDAS" },
+  { "nombre": "EMPANADAS x 3", "precio": 4000, "cat": "MINUTAS" },
+  { "nombre": "ALFAJOR DE MAICENA", "precio": 2500, "cat": "DULCES" },
+  { "nombre": "FERNET CON COCA", "precio": 4000, "cat": "ALCOHOL" },
+  { "nombre": "HEINEKEN", "precio": 4500, "cat": "ALCOHOL" },
+  { "nombre": "SALTA RUBIA", "precio": 3500, "cat": "ALCOHOL" },
+  { "nombre": "PROMO CAFÉ + 2 MEDIALUNAS", "precio": 4000, "cat": "PROMOS" },
+  { "nombre": "EMPANADAS x 3 + GASEOSA", "precio": 4500, "cat": "PROMOS" }
 ]
