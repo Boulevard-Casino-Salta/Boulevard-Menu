@@ -36,7 +36,6 @@
   { "nombre": "JOHNNIE WALKER NEGRO", "precio": 8000, "cat": "3. ALCOHOL Y TRAGOS" },
   { "nombre": "FERNET CON COCA", "precio": 4000, "cat": "3. ALCOHOL Y TRAGOS" },
   { "nombre": "HEINEKEN / CORONA", "precio": 5000, "cat": "3. ALCOHOL Y TRAGOS" },
-  { "nombre": "SALTA RUBIA / SALTA NEGRA /QUILMES / BUDWEISER / SCHNEIDER", "precio": 3500, "cat": "3. ALCOHOL Y TRAGOS" },
-  { "nombre": "CERVEZA CORONA", "precio": 5000, "cat": "3. ALCOHOL Y TRAGOS" },
+  { "nombre": "SALTA / QUILMES / BUDWEISER", "precio": 3500, "cat": "3. ALCOHOL Y TRAGOS" },
   { "nombre": "GIN BOMBAY + TÓNICA", "precio": 6500, "cat": "3. ALCOHOL Y TRAGOS" }
 ]
