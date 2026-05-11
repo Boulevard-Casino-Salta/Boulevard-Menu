@@ -17,14 +17,14 @@
   { "nombre": "LICUADO CON AGUA", "precio": 3600, "cat": "2. BEBIDAS SIN ALCOHOL" },
   { "nombre": "LICUADO CON LECHE", "precio": 4000, "cat": "2. BEBIDAS SIN ALCOHOL" },
 
-  { "nombre": "PRECOCIDO JAMÓN Y QUESO", "precio": 5000, "cat": "3. SÁNDWICHERÍA" },
-  { "nombre": "PRECOCIDO CRUDO Y QUESO", "precio": 5000, "cat": "3. SÁNDWICHERÍA" },
-  { "nombre": "PRECOCIDO TERNERA, TOMATE Y QUESO", "precio": 5000, "cat": "3. SÁNDWICHERÍA" },
+  { "nombre": "PRECOCIDO JAMÓN Y QUESO", "precio": 6000, "cat": "3. SÁNDWICHERÍA" },
+  { "nombre": "PRECOCIDO CRUDO Y QUESO", "precio": 6000, "cat": "3. SÁNDWICHERÍA" },
+  { "nombre": "PRECOCIDO TERNERA, TOMATE Y QUESO", "precio": 6000, "cat": "3. SÁNDWICHERÍA" },
   { "nombre": "MIXTO JAMÓN Y QUESO", "precio": 3000, "cat": "3. SÁNDWICHERÍA" },
   { "nombre": "MIXTO TERNERA Y QUESO", "precio": 3000, "cat": "3. SÁNDWICHERÍA" },
   { "nombre": "MIXTO HUEVO / QUESO Y ACEITUNA", "precio": 3000, "cat": "3. SÁNDWICHERÍA" },
   { "nombre": "MIXTO ROQUEFORT Y PALETA", "precio": 3000, "cat": "3. SÁNDWICHERÍA" },
-  { "nombre": "⭐ PROMO: PRECOCIDO + GASEOSA", "precio": 5500, "cat": "3. SÁNDWICHERÍA" },
+  { "nombre": "⭐ PROMO: PRECOCIDO + GASEOSA", "precio": 6500, "cat": "3. SÁNDWICHERÍA" },
   { "nombre": "⭐ PROMO: MIXTO + GASEOSA", "precio": 3500, "cat": "3. SÁNDWICHERÍA" },
 
   { "nombre": "EMPANADAS x 3 (CARNE/POLLO/QUESO)", "precio": 4000, "cat": "4. EMPANADAS" },
