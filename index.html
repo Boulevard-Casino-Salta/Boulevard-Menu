@@ -8,35 +8,27 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     
     <style>
-      /* Estética premium oscura de casino */
       body {
-        margin: 0;
-        padding: 0;
+        margin: 0; padding: 0;
         background-color: #121212;
         color: #ffffff;
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+        display: flex; flex-direction: column;
+        justify-content: center; align-items: center;
+        height: 100vh; overflow: hidden;
       }
 
       .contenedor-bienvenida {
         text-align: center;
-        width: 100%;
-        max-width: 400px;
+        width: 100%; max-width: 400px;
         padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: flex; flex-direction: column; align-items: center;
       }
 
-      /* El contenedor del objeto 3D */
+      /* El visor gráfico */
       model-viewer {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
         margin-bottom: 20px;
         --poster-color: transparent;
       }
@@ -63,10 +55,11 @@
     <div class="contenedor-bienvenida">
       <model-viewer 
         src="Clover.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
         autoplay 
         auto-rotate 
-        rotation-per-second="60deg"
-        interaction-prompt="none"
         shadow-intensity="1"
         environment-image="neutral">
       </model-viewer>
@@ -76,10 +69,11 @@
     </div>
 
     <script>
-      // 5 segundos exactos para disfrutar el trébol 3D en pantalla y redirige de una
+      // Subí el tiempo a 7 segundos (7000ms) para que el cliente pueda ver el objeto 
+      // en 3D, girarlo con el dedo en la pantalla y notar que es un volumen real.
       setTimeout(function() {
         window.location.href = "menu.html"; 
-      }, 5000);
+      }, 7000);
     </script>
 
   </body>
