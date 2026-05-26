@@ -6,7 +6,6 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     
     <style>
-      /* Estilos para la pantalla de bienvenida previa a la cámara */
       #pantalla-inicio {
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
@@ -16,7 +15,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: sans-serif;
         color: white;
       }
       .boton-dorado {
@@ -45,20 +44,21 @@
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" style="display: none;">
       
       <a-assets>
-        <a-asset-item id="ficha" src="Menu.glb"></a-asset-item>
+        <a-asset-item id="cuaderno" src="Menu.glb"></a-asset-item>
       </a-assets>
 
       <a-marker type="preset" preset="hiro">
         
         <a-entity 
-          gltf-model="#ficha" 
-          position="0 0.3 0" 
-          scale="2 2 2" animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
+          gltf-model="#cuaderno" 
+          position="0 0.5 0" 
+          scale="0.2 0.2 0.2"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
         </a-entity>
 
         <a-text 
-          value="BIENVENIDO A BOULEVARD\nCargando platos..." 
-          position="0 1.8 0" 
+          value="BIENVENIDO" 
+          position="0 1.2 0" 
           color="#FFD700"
           width="4"
           align="center">
@@ -71,14 +71,16 @@
 
     <script>
       function iniciarExperiencia() {
-        // 1. Ocultamos la pantalla de carga y mostramos la escena de la cámara
         document.getElementById('pantalla-inicio').style.display = 'none';
         document.querySelector('a-scene').style.display = 'block';
         
-        // 2. Recién cuando el usuario interactúa, arranca el reloj de 5 segundos para redirigir
+        // NOTA: Comenté la redirección para que la web NO salte de página sola.
+        // Así podés tomarte todo el tiempo del mundo para apuntar al marcador Hiro y ver el cuaderno.
+        /*
         setTimeout(function() {
           window.location.href = "menu.html"; 
         }, 5000);
+        */
       }
     </script>
 
