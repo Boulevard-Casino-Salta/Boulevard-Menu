@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boulevard Casino - Experiencia RA</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  
+  <body style="margin: 0px; overflow: hidden;">
+    
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+      
+      <a-assets>
+        <a-asset-item id="ficha" src="Menu.glb"></a-asset-item>
+      </a-assets>
+
+      <a-marker type="preset" preset="hiro">
+        
+        <a-entity 
+          gltf-model="#ficha" 
+          position="0 0.3 0" 
+          scale="1.5 1.5 1.5"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
+        </a-entity>
+
+        <a-text 
+          value="BIENVENIDO A BOULEVARD\nCargando menu digital..." 
+          position="0 1.5 0" 
+          color="#FFD700"
+          width="4"
+          align="center">
+        </a-text>
+
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+      // Espera 4 segundos y salta automáticamente a tu menú (menu.html)
+      setTimeout(function() {
+        window.location.href = "menu.html"; 
+      }, 4000);
+    </script>
+
+  </body>
+</html>
