@@ -25,12 +25,24 @@
         display: flex; flex-direction: column; align-items: center;
       }
 
-      /* El visor gráfico */
+      /* El visor gráfico optimizado sin recuadros extra */
       model-viewer {
         width: 280px;
         height: 280px;
         margin-bottom: 20px;
         --poster-color: transparent;
+        outline: none; /* Elimina el borde de selección azul/blanco */
+      }
+
+      /* Truco CSS para ocultar cualquier botón de RA por defecto o recuadro fantasma */
+      model-viewer::part(default-ar-button) {
+        display: none;
+      }
+
+      /* Quitamos cualquier recuadro blanco de enfoque en dispositivos móviles */
+      *:focus {
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
       }
 
       h1 {
@@ -55,8 +67,6 @@
     <div class="contenedor-bienvenida">
       <model-viewer 
         src="Clover.glb" 
-        ar 
-        ar-modes="webxr scene-viewer quick-look" 
         camera-controls 
         autoplay 
         auto-rotate 
@@ -69,8 +79,7 @@
     </div>
 
     <script>
-      // Subí el tiempo a 7 segundos (7000ms) para que el cliente pueda ver el objeto 
-      // en 3D, girarlo con el dedo en la pantalla y notar que es un volumen real.
+      // 7 segundos limpios para que interactúen con el trébol y salte a la carta
       setTimeout(function() {
         window.location.href = "menu.html"; 
       }, 7000);
