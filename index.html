@@ -21,8 +21,8 @@
 
         <a-entity 
           gltf-model="#trebol" 
-          position="0 0.3 0" 
-          scale="0.5 0.5 0.5"
+          position="0 0.2 0" 
+          scale="1 1 1"
           animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
         </a-entity>
 
@@ -40,7 +40,7 @@
     </a-scene>
 
     <script>
-      // 6 segundos de animación antes de pasar automáticamente a los precios
+      // 6 segundos de animación en 3D antes de pasar automáticamente al menú (menu.html)
       setTimeout(function() {
         window.location.href = "menu.html"; 
       }, 6000);
