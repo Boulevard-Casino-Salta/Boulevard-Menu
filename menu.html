@@ -5,47 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boulevard Casino - Menú</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: white; margin: 0; padding: 20px; }
-        h1 { border-bottom: 2px solid #d4af37; padding-bottom: 10px; color: #d4af37; text-align: center; font-size: 1.8em; }
-        h2 { color: #d4af37; margin-top: 30px; border-bottom: 1px solid #333; font-size: 1.2em; text-transform: uppercase; }
-        .contenedor { max-width: 500px; margin: auto; }
-        .item { background: #222; margin-bottom: 8px; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid #d4af37; }
-        .precio { font-weight: bold; font-size: 1.1em; color: #d4af37; white-space: nowrap; margin-left: 10px; }
-        footer { text-align: center; margin-top: 40px; font-size: 0.8em; color: #888; letter-spacing: 1px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #1a1a1a; 
+            color: white; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        h1 { 
+            border-bottom: 2px solid #d4af37; 
+            padding-bottom: 10px; 
+            color: #d4af37; 
+            text-align: center; 
+            font-size: 1.8em; 
+        }
+        h2 { 
+            color: #d4af37; 
+            margin-top: 30px; 
+            border-bottom: 1px solid #333; 
+            font-size: 1.2em; 
+            text-transform: uppercase; 
+        }
+        .contenedor { 
+            max-width: 500px; 
+            margin: auto; 
+        }
+        .item { 
+            background: #222; 
+            margin-bottom: 8px; 
+            padding: 15px; 
+            border-radius: 10px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-left: 4px solid #d4af37; 
+        }
+        .precio { 
+            font-weight: bold; 
+            font-size: 1.1em; 
+            color: #d4af37; 
+            white-space: nowrap; 
+            margin-left: 10px; 
+        }
+        footer { 
+            text-align: center; 
+            margin-top: 40px; 
+            font-size: 0.8em; 
+            color: #888; 
+            letter-spacing: 1px; 
+        }
     </style>
 </head>
 <body>
+
     <div class="contenedor">
         <h1>BOULEVARD CASINO</h1>
-        <div id="menu-lista">Cargando menú...</div>
+        <div id="menu-lista">Cargando menú desde la base de datos...</div>
     </div>
+
     <footer>CASINO BOULEVARD</footer>
-  
 
     <script>
-        fetch('productos.json')
-            .then(res => res.json())
+        // 1. REEMPLAZÁ ESTE TEXTO POR EL ID LARGO DE TU GOOGLE SHEET
+        const SHEET_ID = '1Wmb0NK4h1q8u0OLrUS_2wg037cAFBTZN8_h4x_stHIw';
+        
+        // URL de la API de Google Visualización para obtener los datos como texto formateado
+        const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+        // 2. Petición asíncrona a la planilla de Google
+        fetch(URL)
+            .then(res => res.text())
             .then(data => {
+                // Google Sheets devuelve los datos con un prefijo "google.visualization.Query.setResponse(...);"
+                // Con estas líneas limpiamos el texto para quedarnos solo con el objeto JSON puro.
+                const temp = data.substr(47).slice(0, -2);
+                const json = JSON.parse(temp);
+                const filas = json.table.rows;
+
+                // 3. Mapeamos y estructuramos las filas para que tengan la misma forma que tu antiguo archivo "productos.json"
+                // Columna 1 (fila.c[1]) = producto
+                // Columna 3 (fila.c[3]) = precio
+                // Columna 4 (fila.c[4]) = categoría (cat)
+                const productos = filas.map(fila => {
+                    return {
+                        nombre: fila.c[1] ? fila.c[1].v : '',
+                        precio: fila.c[3] ? Number(fila.c[3].v) : 0,
+                        cat: fila.c[4] ? fila.c[4].v : ''
+                    };
+                });
+
                 const contenedor = document.getElementById('menu-lista');
-                const categorias = [...new Set(data.map(p => p.cat))];
+                
+                // 4. Tu misma lógica avanzada: Obtenemos un array de categorías únicas sin repetir
+                const categorias = [...new Set(productos.map(p => p.cat))];
                 let htmlFinal = '';
 
+                // 5. Recorremos las categorías y armamos el diseño HTML dinámicamente
                 categorias.forEach(cat => {
-                    htmlFinal += `<h2>${cat}</h2>`;
-                    const filtrados = data.filter(p => p.cat === cat);
-                    filtrados.forEach(prod => {
-                        htmlFinal += `
-                            <div class="item">
-                                <span>${prod.nombre}</span>
-                                <span class="precio">$${prod.precio.toLocaleString('es-AR')}</span>
-                            </div>`;
-                    });
+                    if (cat) { // Validamos que la celda de categoría no esté vacía en el Sheet
+                        htmlFinal += `<h2>${cat}</h2>`;
+                        
+                        // Filtramos los productos que pertenecen exclusivamente a esta categoría
+                        const filtrados = productos.filter(p => p.cat === cat);
+                        
+                        // Inyectamos tus clases CSS correspondientes (.item y .precio)
+                        filtrados.forEach(prod => {
+                            htmlFinal += `
+                                <div class="item">
+                                    <span>${prod.nombre}</span>
+                                    <span class="precio">$${prod.precio.toLocaleString('es-AR')}</span>
+                                </div>`;
+                        });
+                    }
                 });
+                
+                // Renderizamos todo el bloque de código generado dentro del contenedor principal
                 contenedor.innerHTML = htmlFinal;
             })
             .catch(err => {
-                document.getElementById('menu-lista').innerHTML = "Error al cargar la lista de precios.";
-                console.error(err);
+                // Si el usuario no tiene internet o el ID de la planilla está mal, muestra este mensaje en pantalla
+                document.getElementById('menu-lista').innerHTML = "Error al conectar con la lista de precios.";
+                console.error("Error detallado:", err);
             });
     </script>
 </body>
